@@ -1,0 +1,52 @@
+body 
+{
+    background-color: #37474F;
+}
+
+.float
+{
+    position: fixed;
+    top: 90%;
+    left: 94%;
+}
+
+#addBoard 
+{
+    margin-top: 10%;
+    background-color: #37474F;
+    color: white;
+    border: none;
+}
+
+#boardInput 
+{
+    padding-bottom: 0.5%;
+    color: white;
+}
+
+.right 
+{
+    text-align: right;
+}
+
+tr 
+{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.center 
+{
+    text-align: center;
+}
+
+input 
+{
+    border-bottom: 1px solid cyan !important;
+}
+
+.center a 
+{
+    margin-left: 2%;
+    margin-right: 3%;
+}
