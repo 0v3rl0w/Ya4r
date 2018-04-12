@@ -2,22 +2,22 @@ function loadPage()
 {
     getJson("https://a.4cdn.org/"+window.board+"/"+window.page+".json", function(data)
     {
-        console.log(window.page);
         thread = data.threads
         for(var i=0; i<thread.length; i++)
         {
             var content = thread[i].posts[0];
             var file = content.tim + content.ext;
+            console.log(content.no);
             var text = content.com;
             if(text === undefined){text = "";}
             if(content.ext == ".jpg" || content.ext == ".png" || content.ext == ".gif")
             {
-                $(".collection").append("<li class='collection-item z-depth-2'><em>"+content.name+"</em><br /><br /><img width=250 height=166 src='http://i.4cdn.org/"+window.board+"/"+file+"'><em class='title'>"+text+"</em></li><br />");
+                $(".collection").append("<li class='collection-item z-depth-2' onclick='showThread(\""+content.no+"\")'><em>"+content.name+"</em><br /><br /><img width=250 height=166 src='http://i.4cdn.org/"+window.board+"/"+file+"'><em class='title'>"+text+"</em></li><br />");
             }         
                 
             if(content.ext == ".webm")
             {
-                $(".collection").append("<li class='collection-item z-depth-2'><em>"+content.name+"</em><br /><br /><video width=250 height=166 controls autoplay loop><source src='http://i.4cdn.org/"+window.board+"/"+file+"'></video><em class='title'>"+text+"</em></li><br />");
+                $(".collection").append("<li class='collection-item z-depth-2' onclick='showThread(\""+content.no+"\")'><em>"+content.name+"</em><br /><br /><video width=250 height=166 controls autoplay loop><source src='http://i.4cdn.org/"+window.board+"/"+file+"'></video><em class='title'>"+text+"</em></li><br />");
             }
         }
     });
