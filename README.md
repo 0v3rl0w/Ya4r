@@ -1,5 +1,12 @@
 # Ya4r (*Y*et *A*nother *4*Chan *R*eader)
 
+## Update
+
+### For 2018-04-12
+
+* You can see only the title and the first article of any threads on any board
+
+
 ## How to run it ?
 
 ### For Linux (Debian) :
