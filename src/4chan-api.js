@@ -6,7 +6,7 @@ function getJson(link, callback)
     {
         if(!error && response.statusCode === 200){
            callback(body);
-        }
+        } 
     });
 }
 
