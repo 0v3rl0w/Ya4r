@@ -8,7 +8,7 @@
     float: right;
 }
 
-.collection-item img 
+.collection-item img, .collection-item video
 {
     float: left;
     margin-right: 1%;
@@ -24,3 +24,13 @@
     color: #009688 !important;
 }
 
+#back 
+{
+    position: fixed;
+    left: 1%;
+}
+
+.pagination 
+{
+    color: white;
+}

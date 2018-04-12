@@ -15,11 +15,6 @@ function addBoard(board)
     }   
 }
 
-function showBoard()
-{
-    console.log("BOARD");
-}
-
 $(document).ready(function(){
     $('.modal').modal();
     $('.sidenav').sidenav();

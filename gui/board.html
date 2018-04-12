@@ -29,11 +29,16 @@
         <nav>
             <div class="nav-wrapper black">
                 <a href="#" class="brand-logo center"></a>
+                <a href="#" id="back" style="display:none;" onclick="backThread();"><i class="material-icons">arrow_back</i></a>
                 <a href="#"><i data-target="slide-out" class="material-icons sidenav-trigger">menu</i></a>
             </div>  
         </nav>
 
         <ul class="collection"></ul>
+        <ul class="pagination center">
+            <li class="wave-effect white"><a href="#!" onclick="addPage(-1);"><i class="material-icons">chevron_left</i></a></li>
+            <li class="waves-effect white"><a href="#!" onclick="addPage(1);"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
     </body>
 
 </html>
