@@ -17,7 +17,7 @@ function loadPage()
                 
             if(content.ext == ".webm")
             {
-                $(".collection").append("<li class='collection-item z-depth-2' onclick='showThread(\""+content.no+"\")'><em>"+content.name+"</em><br /><br /><video width=250 height=166 controls autoplay loop><source src='http://i.4cdn.org/"+window.board+"/"+file+"'></video><em class='title'>"+text+"</em></li><br />");
+                $(".collection").append("<li class='collection-item z-depth-2' onclick='showThread(\""+content.no+"\")'><em>"+content.name+"</em><br /><br /><video class='video-js' width=250 height=166 controls loop><source src='http://i.4cdn.org/"+window.board+"/"+file+"'></video><em class='title'>"+text+"</em></li><br />");
             }
         }
     });
@@ -54,7 +54,7 @@ function showThread(nbr)
                 
                 if(content.ext == ".webm")
                 {
-                    $(".collection").append("<li class='collection-item z-depth-2'><em>"+content.name+"</em><br /><br /><video width=250 height=166 controls autoplay loop><source src='http://i.4cdn.org/"+window.board+"/"+file+"'></video><em class='title'>"+text+"</em></li><br />");
+                    $(".collection").append("<li class='collection-item z-depth-2'><em>"+content.name+"</em><br /><br /><video class='video-js' width=250 height=166 controls  loop><source src='http://i.4cdn.org/"+window.board+"/"+file+"'></video><em class='title'>"+text+"</em></li><br />");
                 }
             }
 
@@ -66,15 +66,16 @@ function showThread(nbr)
     });
 }
 
-function addPage(nbr)
+window.onscroll = function()
 {
-        if(!(nbr == -1 && window.page == 1) || !(nbr == 1 && window.page == 10))
-        {
-            window.page += nbr;
-            $(".collection").empty();  
-            window.scrollTo(0,0); 
-            loadPage();
-        }
+    var limit = Math.max( document.body.scrollHeight, document.body.offsetHeight, 
+        document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight );
+    console.log(limit);
+    if(limit-979 == document.body.scrollTop)
+    {
+        window.page += 1;
+        loadPage();
+    }
 }
 
 $(document).ready(function()
