@@ -23,7 +23,7 @@ $(document).ready(function(){
         window.path = process.env.HOME + "/.ya4r";
     }
 
-    if(os.platform === "win32")
+    else
     {
         window.path = process.env.APPDATA + "\\.ya4r";
     }
