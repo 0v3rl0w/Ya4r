@@ -31,3 +31,8 @@ Search the wizard from [here](https://nodejs.org/en/) then launch the command
 npm install -g electron
 electron .
 ```
+
+## Screenshot
+
+![screenshot](https://i.imgur.com/wGskeMr.png)
+![screenshot](https://i.imgur.com/nIalI2T.png)
