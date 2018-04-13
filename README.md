@@ -18,6 +18,11 @@
 # electron .
 ```
 
+### For ArchLinux:
+
+```bash
+# yay -S https://aur.archlinux.org/packages/ya4r/
+```
 ### For Windows :
 
 Search the wizard from [here](https://nodejs.org/en/) then launch the command
