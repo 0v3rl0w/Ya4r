@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=0.2
+Name=Ya4r
+Comment=Yet Another 4Chan Reader - Built using the Electron framework - Beta channel.
+Exec=electron /opt/ya4r/
+Path=/opt/ya4r/
+Icon=/opt/ya4r/gui/img/icon.png
+Terminal=false
+Type=Application
+Categories=Internet
