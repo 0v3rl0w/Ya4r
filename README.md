@@ -6,6 +6,9 @@
 
 * New Algorithm for scrolling
 * After some try i've figured out that recaptcha can't be suitable for ya4r because of recaptcha
+* Delete board fixed
+* When you open a link, it will be opened in the browser
+* History feature removed
 
 ### 2018-04-12
 
