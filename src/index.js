@@ -15,6 +15,28 @@ function addBoard(board)
     }   
 }
 
+function readFile()
+{
+    fs.readFile(path, function read(err, data){
+        if(err) {throw err;}
+        var content = data.toString();
+        window.board = content.split('\n');
+        console.log(window.board);
+        getJson("https://a.4cdn.org/boards.json", function(boards){
+            boards = boards.boards;
+            for(var i=0; i<boards.length; i++)
+            {
+                for(var j=0; j<window.board.length; j++)
+                {
+                    if(boards[i].board == window.board[j])
+                    {
+                        $(".collection").append("<a href='./board.html?i="+window.board[j]+"' class='board-link'><li class='collection-item z-depth-2'><div class='col s6'>"+boards[i].title+"</div></li><hr /></a>");}
+                    }                    
+                }
+        });
+    });
+}
+
 $(document).ready(function(){
     $('.modal').modal();
     $('.sidenav').sidenav();
@@ -41,24 +63,7 @@ $(document).ready(function(){
 
     else 
     {
-        fs.readFile(path, function read(err, data){
-            if(err) {throw err;}
-            var content = data.toString();
-            window.board = content.split('\n');
-            console.log(window.board);
-            getJson("https://a.4cdn.org/boards.json", function(boards){
-                boards = boards.boards;
-                for(var i=0; i<boards.length; i++)
-                {
-                    for(var j=0; j<window.board.length; j++)
-                    {
-                        if(boards[i].board == window.board[j])
-                        {
-                            $(".collection").append("<a href='./board.html?i="+window.board[j]+"'><li class='collection-item z-depth-2'><div class='col s6'>"+boards[i].title+"</div></li><hr /></a>");}
-                        }                    
-                    }
-            });
-        });
+        readFile();
     }
 });
 
@@ -73,13 +78,6 @@ function add()
             if(boards[i].board == board) {addBoard(boards[i]);}
         }
     });
-}
-
-function goNormal()
-{
-    $(".new").remove();
-    $(".float").show();
-    $(".brand-logo").show();
 }
 
 function removeitem(obj)
@@ -101,7 +99,10 @@ function removeitem(obj)
                         if(err) {throw err;}
                     });
                     
-                    location.reload();
+                    $(".collection").empty();
+                    readFile();
+                    $(".board-link").removeAttr("href");
+                    $(".board-link").attr("onclick", "removeitem(this);")
                 }
             }
         });
@@ -109,16 +110,16 @@ function removeitem(obj)
 
     else 
     {
-        goNormal();
+        location.reload();
     }
 }
 
 function edit()
 {
+    $(".board-link").removeAttr("href");
     $(".float").hide();
     $(".brand-logo").hide();
-    $("body").append('<a href="#" id="new" onclick="goNormal();" class="new btn-floating btn-large waves-effect waves-light red float"><i class="material-icons">exit_to_app</i></a>')
+    $("body").append('<a href="#" id="new" onclick="location.reload();" class="new btn-floating btn-large waves-effect waves-light red float"><i class="material-icons">exit_to_app</i></a>')
     $(".nav-wrapper").append('<a href="#" class="new brand-logo center" style="color: red;">Edit mode</a>')
-    $("a").removeAttr("onclick");
-    $("a").attr("onclick", "removeitem(this);")
+    $(".board-link").attr("onclick", "removeitem(this);")
 }

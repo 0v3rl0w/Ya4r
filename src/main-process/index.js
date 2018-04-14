@@ -33,6 +33,11 @@ app.on('activate', () => {
     }
 });
 
+/*
 app.on('browser-window-created',function(e,window) {
     window.setMenu(null);
 });
+*/
+
+/* TEST */
+

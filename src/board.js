@@ -1,3 +1,10 @@
+const shell = require('electron').shell;
+
+$(document).on('click', 'a[href^="http"]', function(event) {
+    event.preventDefault();
+    shell.openExternal(this.href);
+});
+
 function loadPage()
 {
     getJson("https://a.4cdn.org/"+window.board+"/"+window.page+".json", function(data)
@@ -12,12 +19,12 @@ function loadPage()
             if(text === undefined){text = "";}
             if(content.ext == ".jpg" || content.ext == ".png" || content.ext == ".gif")
             {
-                $(".collection").append("<li class='collection-item z-depth-2' onclick='showThread(\""+content.no+"\")'><em>"+content.name+"</em><br /><br /><img width=250 height=166 src='http://i.4cdn.org/"+window.board+"/"+file+"'><em class='title'>"+text+"</em></li><br />");
+                $(".collection").append("<li class='collection-item z-depth-2'><em>"+content.name+"</em><br /><br /><img width=250 height=166 src='http://i.4cdn.org/"+window.board+"/"+file+"'><em class='title' onclick='showThread(\""+content.no+"\")'>"+text+"</em></li><br />");
             }         
                 
             if(content.ext == ".webm")
             {
-                $(".collection").append("<li class='collection-item z-depth-2' onclick='showThread(\""+content.no+"\")'><em>"+content.name+"</em><br /><br /><video class='video-js' width=250 height=166 controls loop><source src='http://i.4cdn.org/"+window.board+"/"+file+"'></video><em class='title'>"+text+"</em></li><br />");
+                $(".collection").append("<li class='collection-item z-depth-2'><em>"+content.name+"</em><br /><br /><video class='video-js' width=250 height=166 controls loop><source src='http://i.4cdn.org/"+window.board+"/"+file+"'></video><em class='title' onclick='showThread(\""+content.no+"\")'>"+text+"</em></li><br />");
             }
         }
     });
@@ -68,10 +75,7 @@ function showThread(nbr)
 
 window.onscroll = function()
 {
-    var limit = Math.max( document.body.scrollHeight, document.body.offsetHeight, 
-        document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight );
-    console.log(limit);
-    if(limit-979 == document.body.scrollTop)
+    if(document.body.scrollTop > 1000 && document.body.scrollTop % 3000 <= 150)
     {
         window.page += 1;
         loadPage();
@@ -92,5 +96,6 @@ $(document).ready(function()
 
     window.board = window.location.href.split('?')[1].split('=')[1].replace('#', '');
     $('.sidenav').sidenav();
+    $('.modal').modal();
     loadPage();
 });

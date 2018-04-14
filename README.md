@@ -2,7 +2,12 @@
 
 ## Update
 
-### For 2018-04-12
+### Insert Release Date Here
+
+* New Algorithm for scrolling
+* After some try i've figured out that recaptcha can't be suitable for ya4r because of recaptcha
+
+### 2018-04-12
 
 * You can see only the title and the first article of any threads on any board
 
