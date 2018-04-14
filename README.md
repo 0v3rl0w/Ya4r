@@ -17,6 +17,8 @@
 
 ## How to run it ?
 
+*Note* : The releases for Windows and Linux are available in the release tab
+
 ### For Linux (Debian) :
 
 ``` bash
