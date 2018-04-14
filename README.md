@@ -2,7 +2,7 @@
 
 ## Update
 
-### Insert Release Date Here
+### 2018-04-14
 
 * New Algorithm for scrolling
 * After some try i've figured out that recaptcha can't be suitable for ya4r because of recaptcha
