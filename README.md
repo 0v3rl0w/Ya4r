@@ -47,7 +47,7 @@ electron .
 ![screenshot](https://i.imgur.com/wGskeMr.png)
 ![screenshot](https://i.imgur.com/nIalI2T.png)
 
-# Donate
+## Donate
 There is no small donation ;)
 
 Bitcoin: 13UJxAAmA6TDk8xEUcKKBfLqDCCXbeB1HK 
